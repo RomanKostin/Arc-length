@@ -41,12 +41,12 @@ bool Angle::Angle::operator==(const Angle& angle) const
 	return(this->degrees == angle.degrees && this->minutes == angle.minutes && this->seconds == angle.seconds);
 }
 
-bool Angle::Angle::operator!=(const Angle& angle) const // не работает (раньше было как сверху, только наоборот)
+bool Angle::Angle::operator!=(const Angle& angle) const // РЅРµ СЂР°Р±РѕС‚Р°РµС‚ (СЂР°РЅСЊС€Рµ Р±С‹Р»Рѕ РєР°Рє СЃРІРµСЂС…Сѓ, С‚РѕР»СЊРєРѕ РЅР°РѕР±РѕСЂРѕС‚)
 {
 	return !this == angle;
 }
 
-void Angle::Angle::print() // исправить на std::string
+void Angle::Angle::print() // РёСЃРїСЂР°РІРёС‚СЊ РЅР° std::string
 {
 	std::cout << this->degrees << "`" << this->minutes << "'" << this->seconds << "\"" << std::endl;
 }
