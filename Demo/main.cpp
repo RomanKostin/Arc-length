@@ -7,16 +7,8 @@ int main(void)
 	Angle:: Angle a(3,4,11);
 	Angle::Angle b(a);
 	Angle::Angle c(-3,4,11);
-	if (a==b)
-	{
-		std::cout << "== working" << std::endl;
-	}
-	if (a!=c)
-	{
-		std::cout << "!= working" << std::endl;
-	}
-	a.print();
-	b.print();
-	c.print();
+	Angle::Angle d(7201);
+	std::cin >> a;
+	std::cout << a << std::endl << d;
 	return 0;
 }

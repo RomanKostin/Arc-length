@@ -22,7 +22,6 @@ namespace Angle
 		double seconds{ 0 };
 
 	public:
-
 		/*
 		*@brief конструктор для случая, когда введены все значения об угле
 		*/
@@ -49,8 +48,13 @@ namespace Angle
 		bool operator != (const Angle& angle) const;
 
 		/*
-		*@brief функция вывода всех значений градуса
+		*@brief оператор "<<" для класса Angle
 		*/
-		void print(); // исправить на std::string
+		friend std::ostream& operator<<(std::ostream& output,const Angle& angle);
+
+		/*
+		*@brief оператор ">>" для класса Angle
+		*/
+		friend std::istream& operator>>(std::istream& input, Angle& angle);
 	};
 }
