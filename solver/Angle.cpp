@@ -35,7 +35,7 @@ bool Angle::Angle::operator==(const Angle& angle) const
 
 bool Angle::Angle::operator!=(const Angle& angle) const
 {
-	return (this->degrees != angle.degrees || this->minutes != angle.minutes || this->seconds != angle.seconds);
+	return !(*this == angle);
 }
 
 std::ostream& Angle::operator<<(std::ostream& output, const Angle& angle)
@@ -46,10 +46,18 @@ std::ostream& Angle::operator<<(std::ostream& output, const Angle& angle)
 
 std::istream& Angle::operator>>(std::istream& input, Angle& angle)
 {
-	input >> angle.degrees >> angle.minutes >> angle.seconds;
-	if (angle.minutes<0 || angle.seconds < -DBL_EPSILON || angle.minutes>60 || angle.seconds - 60 > DBL_EPSILON)
-	{
-		throw std::invalid_argument("wrong angle!");
-	}
+	int degrees = 0,
+		minutes = 0;
+	double seconds = 0;
+	input >> degrees >> minutes >> seconds;
+	Angle temp(degrees,minutes,seconds);
+	temp.swap(angle);
 	return input;
+}
+
+void Angle::Angle::swap(Angle& angle)
+{
+	std::swap(this->degrees,angle.degrees);
+	std::swap(this->minutes,angle.minutes);
+	std::swap(this->seconds,angle.seconds);
 }

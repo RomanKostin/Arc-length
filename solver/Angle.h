@@ -56,5 +56,10 @@ namespace Angle
 		*@brief оператор ">>" для класса Angle
 		*/
 		friend std::istream& operator>>(std::istream& input, Angle& angle);
+
+		/*
+		*@brief функция swap для класса Angle
+		*/
+		void swap(Angle& angle);
 	};
 }
