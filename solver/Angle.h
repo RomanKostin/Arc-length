@@ -7,6 +7,11 @@ namespace Angle
 	{
 	private:
 		/*
+		*@brief значение для перевода секунд и минут в градусы
+		*/
+		static const int factor = 60;
+
+		/*
 		*@brief значение в градусах
 		*/
 		int degrees{ 0 };
@@ -20,6 +25,11 @@ namespace Angle
 		*@brief значение в секундах
 		*/
 		double seconds{ 0 };
+
+		/*
+		*@brief функция swap для класса Angle
+		*/
+		void swap(Angle& angle);
 
 	public:
 		/*
@@ -36,6 +46,16 @@ namespace Angle
 		*@brief конструктор копирования
 		*/
 		Angle(Angle& A) = default;
+		
+		/*
+		*@brief оператор "=" для класса Angle
+		*/
+		Angle& operator = (const Angle& angle) = default;
+
+		/*
+		*@brief деструктор класса Angle
+		*/
+		~Angle() = default;
 
 		/*
 		*@brief оператор "==" для класса Angle
@@ -57,9 +77,5 @@ namespace Angle
 		*/
 		friend std::istream& operator>>(std::istream& input, Angle& angle);
 
-		/*
-		*@brief функция swap для класса Angle
-		*/
-		void swap(Angle& angle);
 	};
 }

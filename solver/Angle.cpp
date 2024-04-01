@@ -3,7 +3,7 @@
 
 Angle::Angle::Angle(int degr, int min, double sec)
 {
-	if (min<0 || sec < -DBL_EPSILON || min>60 || sec - 60 > DBL_EPSILON)
+	if (min<0 || sec < 0 || min > factor || sec > factor||fabs(degr)>360)
 	{
 		throw std::invalid_argument("wrong angle!");
 	}
@@ -14,23 +14,23 @@ Angle::Angle::Angle(int degr, int min, double sec)
 
 Angle::Angle::Angle(double sec)
 {
-	int negative = 1, temp_min;
+	int negative = 1;
 	if (sec < DBL_EPSILON)
 	{
 		sec *= -1;
 		negative = -1;
 	}
-	temp_min = sec / 60;
-	this->degrees = negative*(temp_min/60);
-	this->minutes = temp_min%60;
-	this->seconds = fmod(sec,60);
+	int temp_min = sec / factor;
+	this->degrees = (negative*(temp_min/factor)%360);
+	this->minutes = temp_min%factor;
+	this->seconds = fmod(sec,factor);
 }
 
 
 
 bool Angle::Angle::operator==(const Angle& angle) const
 {
-	return(this->degrees == angle.degrees && this->minutes == angle.minutes && this->seconds == angle.seconds);
+	return(this->degrees == angle.degrees && this->minutes == angle.minutes && this->seconds - angle.seconds == DBL_EPSILON);
 }
 
 bool Angle::Angle::operator!=(const Angle& angle) const
