@@ -10,6 +10,11 @@ namespace Angle
 		*@brief значение для перевода секунд и минут в градусы
 		*/
 		static const int factor = 60;
+		
+		/*
+		*@brief максимальное значение градуса
+		*/
+		static const int gradus_max = 360;
 
 		/*
 		*@brief значение в градусах
