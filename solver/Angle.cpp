@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Angle.h"
-
+#include "cmath"
 Angle::Angle::Angle(int degr, int min, double sec)
 {
 	if (min<0 || sec < 0 || min > factor || sec > factor||fabs(degr)>gradus_max)
@@ -36,6 +36,12 @@ bool Angle::Angle::operator==(const Angle& angle) const
 bool Angle::Angle::operator!=(const Angle& angle) const
 {
 	return !(*this == angle);
+}
+
+double Angle::Angle::convert() const
+{
+	double temp = (double)this->degrees + (double)this->minutes / factor + this->seconds / pow(factor,2);
+	return temp;
 }
 
 std::ostream& Angle::operator<<(std::ostream& output, const Angle& angle)

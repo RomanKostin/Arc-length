@@ -11,4 +11,4 @@ int main(void)
 	std::cin >> a;
 	std::cout << a << std::endl << d;
 	return 0;
-}
+} 

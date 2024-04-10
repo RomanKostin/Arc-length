@@ -82,5 +82,10 @@ namespace Angle
 		*/
 		friend std::istream& operator>>(std::istream& input, Angle& angle);
 
+		/*
+	*@brief функция для перевода градусной меры в вещественное значение, необходимое для подсчётов синусов, косинусов и т.д.
+	*/
+		double convert() const;
+
 	};
 }
