@@ -7,22 +7,22 @@ namespace Arc
 	{
 	private:
 		/*
-		*@brief объявление класса угловой меры, как дружественного
+		*@brief РѕР±СЉСЏРІР»РµРЅРёРµ РєР»Р°СЃСЃР° СѓРіР»РѕРІРѕР№ РјРµСЂС‹, РєР°Рє РґСЂСѓР¶РµСЃС‚РІРµРЅРЅРѕРіРѕ
 		*/
 		friend Angle::Angle;
 		
 		/*
-		*@brief длина дуги между двумя точками на сфере в радианах
+		*@brief РґР»РёРЅР° РґСѓРіРё РјРµР¶РґСѓ РґРІСѓРјСЏ С‚РѕС‡РєР°РјРё РЅР° СЃС„РµСЂРµ РІ СЂР°РґРёР°РЅР°С…
 		*/
 		double radian_arc_length;
 	public:
 		
 		/*
-		*@brief конструктор класса длина дуги
-		*@param first_point_longitude - долгота первой точки
-		*@param first_point_latitude - широта первой точки
-		*@param second_point_longitude - долгота второй точки
-		*@param second_point_latitude - широта второй точки
+		*@brief РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° РґР»РёРЅР° РґСѓРіРё
+		*@param first_point_longitude - РґРѕР»РіРѕС‚Р° РїРµСЂРІРѕР№ С‚РѕС‡РєРё
+		*@param first_point_latitude - С€РёСЂРѕС‚Р° РїРµСЂРІРѕР№ С‚РѕС‡РєРё
+		*@param second_point_longitude - РґРѕР»РіРѕС‚Р° РІС‚РѕСЂРѕР№ С‚РѕС‡РєРё
+		*@param second_point_latitude - С€РёСЂРѕС‚Р° РІС‚РѕСЂРѕР№ С‚РѕС‡РєРё
 		*/
 		Arc_length(const Angle::Angle& first_point_longitude,const Angle::Angle& first_point_latitude,const Angle::Angle& second_point_longitude,const Angle::Angle& second_point_latitude);
 	};
