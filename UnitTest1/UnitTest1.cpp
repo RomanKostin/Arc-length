@@ -3,9 +3,9 @@
 #include "..\solver\Angle.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTest1
+namespace AngleTest
 {
-	TEST_CLASS(UnitTest1)
+	TEST_CLASS(AngleTest)
 	{
 	public:
 		TEST_METHOD(operator_equal_equal)
