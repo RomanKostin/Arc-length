@@ -3,7 +3,7 @@
 #include "cmath"
 Angle::Angle::Angle(int degr, int min, double sec)
 {
-	if (min<0 || sec < 0 || min > factor || sec > factor||fabs(degr)>gradus_max)
+	if (min<0 || sec < 0 || min > factor || sec > factor||std::abs(degr)>gradus_max)
 	{
 		throw std::invalid_argument("wrong angle!");
 	}
@@ -15,7 +15,7 @@ Angle::Angle::Angle(int degr, int min, double sec)
 Angle::Angle::Angle(double sec)
 {
 	int negative = 1;
-	if (sec < std::numeric_limits<double>::epsilon())
+	if (sec < 0)
 	{
 		sec *= -1;
 		negative = -1;
@@ -30,7 +30,7 @@ Angle::Angle::Angle(double sec)
 
 bool Angle::Angle::operator==(const Angle& angle) const
 {
-	return(this->degrees == angle.degrees && this->minutes == angle.minutes && fabs(this->seconds - angle.seconds) <= std::numeric_limits<double>::epsilon());
+	return(this->degrees == angle.degrees && this->minutes == angle.minutes && std::abs(this->seconds - angle.seconds) <= std::numeric_limits<double>::epsilon());
 }
 
 bool Angle::Angle::operator!=(const Angle& angle) const
