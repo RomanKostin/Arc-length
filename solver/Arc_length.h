@@ -9,6 +9,9 @@ namespace Arc
 		*@brief длина дуги между двумя точками на сфере в радианах
 		*/
 		double radian_arc_length;
+		/*
+		*@brief константа для перевода в радианы
+		*/
 		static const int gradus_converter = 0.01745329251;
 	public:
 		
