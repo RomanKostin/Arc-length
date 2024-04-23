@@ -2,9 +2,16 @@
 #include "cmath"
 #include <sstream>
 
+
+
+double Arc::Arc_length::ToRadian(const Angle::Angle& degree) const
+{
+	return degree.convert()*gradus_converter;
+}
+
 Arc::Arc_length::Arc_length(const Angle::Angle& first_point_longitude, const Angle::Angle& first_point_latitude, const Angle::Angle& second_point_longitude, const Angle::Angle& second_point_latitude)
 {
-	this->radian_arc_length = acos(sin(first_point_latitude.convert()*gradus_converter)*sin(second_point_latitude.convert() * gradus_converter)+cos(first_point_latitude.convert() * gradus_converter)*cos(second_point_latitude.convert() * gradus_converter)*(fabs(first_point_longitude.convert() * gradus_converter -second_point_longitude.convert() * gradus_converter)));
+	this->radian_arc_length = acos(sin(ToRadian(first_point_latitude))*sin(ToRadian(second_point_latitude))+cos(ToRadian(first_point_latitude))*cos(ToRadian(second_point_latitude))*(std::abs(ToRadian(first_point_longitude) -ToRadian(second_point_longitude))));
 }
 
 std::string Arc::Arc_length::ToString() const

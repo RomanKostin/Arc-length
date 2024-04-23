@@ -1,5 +1,6 @@
 #pragma once
 #include "..\solver\Angle.h"
+#include <numbers>
 namespace Arc
 {
 	class Arc_length
@@ -9,10 +10,16 @@ namespace Arc
 		*@brief длина дуги между двумя точками на сфере в радианах
 		*/
 		double radian_arc_length;
+		
 		/*
 		*@brief константа для перевода в радианы
 		*/
-		static const int gradus_converter = 0.01745329251;
+		static const int gradus_converter = (std::numbers::pi_v<double>)/180 ;
+		
+		/*
+		*@brief метод класса длина дуги, который возвращает значение в радианах
+		*/
+		double ToRadian(const Angle::Angle& degree) const;
 	public:
 		
 		/*
