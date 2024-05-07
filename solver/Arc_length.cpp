@@ -21,6 +21,12 @@ std::string Arc::Arc_length::ToString() const
 	return buffer.str();
 }
 
+double Arc::Arc_length::GetRadianLength() const
+{
+	double temp = this->radian_arc_length;
+	return temp;
+}
+
 std::ostream& Arc::operator<<(std::ostream& output, const Arc_length& arc)
 {
 	return output << arc.ToString();

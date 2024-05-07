@@ -14,7 +14,7 @@ namespace Arc
 		/*
 		*@brief константа для перевода в радианы
 		*/
-		static const int gradus_converter = (std::numbers::pi_v<double>)/180 ;
+		static constexpr double gradus_converter = (std::numbers::pi_v<double>)/180 ;
 		
 		/*
 		*@brief метод класса длина дуги, который возвращает значение в радианах
@@ -40,5 +40,10 @@ namespace Arc
 		*@brief ToString для класса длина дуги
 		*/
 		std::string ToString() const;
+
+		/*
+		*@brief геттер для arc_length
+		*/
+		double GetRadianLength() const;
 	};
 }
