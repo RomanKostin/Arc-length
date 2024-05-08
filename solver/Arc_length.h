@@ -43,6 +43,7 @@ namespace Arc
 
 		/*
 		*@brief геттер для arc_length
+		*@return значение в радианах
 		*/
 		double GetRadianLength() const;
 	};
